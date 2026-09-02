@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipperen</title>
+<meta name="description" content="Tipperen holder regnskab med vennegruppens tips. Appen holder ikke penge - den holder styr på, hvem der skylder hvem.">
+<link rel="icon" href="ikon.png">
+<link rel="apple-touch-icon" href="ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /*
+   * Farverne er appens egne og ikke nye. Den dybe groenne er hentet ud af
+   * app-ikonet, accenten er den, knapperne har i appen, og minus er den
+   * roede, negative beloeb staar i. En hjemmeside, der praesenterer en app,
+   * skal se ud som det, man henter.
+   */
+  :root {
+    --gron-dyb: #044A2B;
+    --gron: #1B5E20;
+    --gron-flade: #E6F2E7;
+    --blaek: #10201A;
+    --ground: #F3F5F2;
+    --kort: #FFFFFF;
+    --dis: #566159;
+    --linje: #DCE2DC;
+    --minus: #B3261E;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--blaek);
+    font-family: Archivo, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .baand { background: var(--gron-dyb); color: #F1F5F1; }
+
+  .midt {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- toppen ---------- */
+
+  header.baand { padding: 28px 0 64px; }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  /* Kun navnet saettes i Montserrat. Praecis samme regel som i appen, hvor
+     resten bevidst bliver ved systemfonten. */
+  .navn {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .navigation a.svag {
+    color: #B9CDBE;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .navigation a.svag:hover { color: #FFFFFF; }
+
+  h1 {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 7vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 52px 0 0;
+    color: #FFFFFF;
+  }
+
+  .under {
+    margin: 18px 0 0;
+    font-size: clamp(17px, 2.4vw, 20px);
+    color: #C4D6C8;
+    max-width: 34ch;
+  }
+
+  /* ---------- afsnit ---------- */
+
+  main { padding: 56px 0 0; }
+
+  section { margin: 0 0 56px; }
+
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dis);
+    margin: 0 0 20px;
+  }
+
+  p { margin: 0 0 16px; max-width: 62ch; }
+
+  /* ---------- de tre trin ---------- */
+
+  /*
+   * Numrene staar der, fordi de tre trin faktisk er en raekkefoelge: man kan
+   * ikke tippe paa et tip, der ikke er oprettet, og ikke afgoere et, ingen har
+   * tippet paa. Var det tre sideordnede egenskaber, ville numrene vaere pynt.
+   */
+  ol.trin {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+    background: var(--linje);
+    border: 1px solid var(--linje);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  ol.trin li {
+    background: var(--kort);
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 4px 14px;
+    align-items: baseline;
+  }
+
+  .nummer {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gron);
+    padding-top: 2px;
+  }
+
+  .trin h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    grid-column: 2;
+  }
+
+  .trin p {
+    margin: 0;
+    grid-column: 2;
+    color: var(--dis);
+    font-size: 15px;
+  }
+
+  /* ---------- regnskabskortet ---------- */
+
+  .regnskab {
+    background: var(--kort);
+    border: 1px solid var(--linje);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .regnskab .top {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--linje);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .regnskab .top strong { font-weight: 600; font-size: 16px; }
+  .regnskab .top span { color: var(--dis); font-size: 14px; }
+
+  .post {
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid var(--linje);
+  }
+
+  .hvem { display: flex; align-items: center; gap: 11px; }
+
+  .ansigt {
+    width: 30px; height: 30px;
+    border-radius: 999px;
+    background: var(--gron-flade);
+    color: var(--gron);
+    display: grid; place-items: center;
+    font-size: 13px; font-weight: 600;
+    flex: none;
+  }
+
+  .beloeb {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .beloeb.plus  { color: var(--gron); }
+  .beloeb.minus { color: var(--minus); }
+
+  .sum {
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FAFBFA;
+    font-size: 14px;
+    color: var(--dis);
+  }
+
+  /* ---------- den vigtige saetning ---------- */
+
+  .ikke-penge {
+    border-left: 3px solid var(--gron);
+    padding: 4px 0 4px 20px;
+    margin: 0;
+  }
+  .ikke-penge p:last-child { margin-bottom: 0; }
+  .ikke-penge strong { font-weight: 600; }
+
+  /* ---------- liste ---------- */
+
+  ul.punkter { margin: 0; padding: 0; list-style: none; max-width: 62ch; }
+  ul.punkter li {
+    padding: 0 0 12px 20px;
+    position: relative;
+    color: var(--dis);
+    font-size: 16px;
+  }
+  ul.punkter li::before {
+    content: "";
+    position: absolute;
+    left: 2px; top: 11px;
+    width: 6px; height: 6px;
+    border-radius: 999px;
+    background: var(--gron);
+  }
+  ul.punkter b { color: var(--blaek); font-weight: 600; }
+
+  /* ---------- bunden ---------- */
+
+  footer {
+    border-top: 1px solid var(--linje);
+    margin-top: 8px;
+    padding: 28px 0 48px;
+    color: var(--dis);
+    font-size: 14px;
+  }
+
+  footer a { color: var(--gron); }
+
+  a:focus-visible, .navn:focus-visible {
+    outline: 2px solid var(--gron);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  .baand a:focus-visible { outline-color: #B9CDBE; }
+</style>
+</head>
+<body>
+
+<header class="baand">
+  <div class="midt">
+    <nav class="navigation">
+      <a class="navn" href="./">Tipperen</a>
+      <a class="svag" href="privatliv.html">Privatlivspolitik</a>
+    </nav>
+    <h1>Hvem skylder hvem?</h1>
+    <p class="under">Tipperen holder regnskab med vennegruppens tips. Resten kan I selv finde ud af.</p>
+  </div>
+</header>
+
+<main class="midt">
+
+  <section>
+    <h2>Sådan virker det</h2>
+    <ol class="trin">
+      <li>
+        <span class="nummer">01</span>
+        <h3>Nogen opretter et tip</h3>
+        <p>En kamp, et udfald, en indsats og en deadline. Alle i gruppen kan oprette.</p>
+      </li>
+      <li>
+        <span class="nummer">02</span>
+        <h3>I tipper hver især</h3>
+        <p>Man kan skifte mening indtil deadline. Bagefter kan alle se, hvem der valgte hvad.</p>
+      </li>
+      <li>
+        <span class="nummer">03</span>
+        <h3>Deltagerne afgør udfaldet</h3>
+        <p>Ikke den, der oprettede tippet — dem, der var med. Er I uenige, går det til afstemning.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Og så står det i regnskabet</h2>
+    <div class="regnskab">
+      <div class="top">
+        <strong>Fredagsholdet</strong>
+        <span>2 afgjorte tips</span>
+      </div>
+      <div class="post">
+        <div class="hvem"><span class="ansigt">F</span> Freja</div>
+        <span class="beloeb plus">+30 kr</span>
+      </div>
+      <div class="post">
+        <div class="hvem"><span class="ansigt">O</span> Oscar</div>
+        <span class="beloeb minus">−15 kr</span>
+      </div>
+      <div class="post">
+        <div class="hvem"><span class="ansigt">D</span> Demo</div>
+        <span class="beloeb minus">−15 kr</span>
+      </div>
+      <div class="sum">
+        <span>I alt</span>
+        <span class="beloeb">0 kr</span>
+      </div>
+    </div>
+    <p style="margin-top:16px;color:var(--dis);font-size:15px">
+      Et regnskab, der ikke går i nul, er et regnskab med en fejl i. Posteringer
+      kan derfor ikke rettes bagefter — kun modposteres, så historikken bliver stående.
+    </p>
+  </section>
+
+  <section>
+    <h2>Vigtigt</h2>
+    <div class="ikke-penge">
+      <p><strong>Tipperen håndterer ikke penge.</strong> Der er ingen betalinger i
+      appen, ingen indbetaling, ingen udbetaling og intet spil mod huset.</p>
+      <p>Appen skriver ned, hvad I har aftalt indbyrdes, og regner ud, hvem der
+      står tilbage med hvad. Selve pengene flytter I mellem jer, som I altid har gjort.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hvad der ellers er med</h2>
+    <ul class="punkter">
+      <li><b>Lukkede grupper.</b> Man kommer ind med gruppens navn og kode — der er ingen offentlige grupper.</li>
+      <li><b>Kommentarer og gruppechat</b> på hvert tip og i hver gruppe.</li>
+      <li><b>Statistik.</b> Din træfprocent, dine største gevinster og tab, og hvem i gruppen der rammer bedst.</li>
+      <li><b>Afregning.</b> Når I gør status, foreslår appen færrest mulige overførsler.</li>
+      <li><b>Notifikationer.</b> Når nogen kommenterer, og en halv time før et tip lukker. Ikke andet.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hjælp og kontakt</h2>
+    <p>Tipperen er lavet af én person til en vennegruppe, ikke af en virksomhed.
+    Er der noget, der driller, eller vil du have din konto slettet, så skriv —
+    så svarer jeg selv.</p>
+    <p><a href="mailto:jebek@opennet.dk">jebek@opennet.dk</a></p>
+  </section>
+
+</main>
+
+<footer class="midt">
+  <p style="margin:0">
+    Tipperen · <a href="privatliv.html">Privatlivspolitik</a> · Kun til iPhone
+  </p>
+</footer>
+
+</body>
+</html>

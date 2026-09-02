@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privatlivspolitik · Tipperen</title>
+<meta name="description" content="Hvilke oplysninger Tipperen gemmer, hvorfor, hvor længe, og hvordan du får dem slettet.">
+<link rel="icon" href="ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+  :root {
+    --gron-dyb: #044A2B;
+    --gron: #1B5E20;
+    --blaek: #10201A;
+    --ground: #F3F5F2;
+    --kort: #FFFFFF;
+    --dis: #566159;
+    --linje: #DCE2DC;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--blaek);
+    font-family: Archivo, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .midt { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    background: var(--gron-dyb);
+    color: #F1F5F1;
+    padding: 28px 0 40px;
+  }
+
+  .navigation {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+
+  .navn {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700; font-size: 22px; letter-spacing: -0.01em;
+    color: #FFFFFF; text-decoration: none;
+  }
+
+  .navigation a.svag { color: #B9CDBE; font-size: 15px; text-decoration: none; }
+  .navigation a.svag:hover { color: #FFFFFF; }
+
+  h1 {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5.5vw, 38px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    margin: 34px 0 0; color: #FFFFFF;
+  }
+
+  .dato { margin: 10px 0 0; color: #B9CDBE; font-size: 15px; }
+
+  main { padding: 44px 0 0; }
+
+  section { margin: 0 0 40px; }
+
+  h2 {
+    font-size: 20px; font-weight: 600;
+    margin: 0 0 14px; letter-spacing: -0.01em;
+  }
+
+  p { margin: 0 0 15px; max-width: 64ch; }
+  p.dis { color: var(--dis); }
+
+  .ramme {
+    background: var(--kort);
+    border: 1px solid var(--linje);
+    border-radius: 12px;
+    overflow: hidden;
+    /* En bred tabel maa rulle i sin egen kasse og ikke skubbe siden sidevaerts. */
+    overflow-x: auto;
+  }
+
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+
+  th, td {
+    text-align: left;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--linje);
+    vertical-align: top;
+  }
+
+  th {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--dis);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 500; white-space: nowrap; }
+  td:last-child { color: var(--dis); }
+
+  ul { margin: 0 0 15px; padding-left: 22px; max-width: 64ch; }
+  li { margin: 0 0 8px; }
+
+  a { color: var(--gron); }
+
+  .fremhaev {
+    border-left: 3px solid var(--gron);
+    padding: 4px 0 4px 20px;
+  }
+  .fremhaev p:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 1px solid var(--linje);
+    padding: 28px 0 48px;
+    color: var(--dis); font-size: 14px;
+  }
+
+  a:focus-visible, .navn:focus-visible {
+    outline: 2px solid var(--gron); outline-offset: 3px; border-radius: 3px;
+  }
+  header a:focus-visible { outline-color: #B9CDBE; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="midt">
+    <nav class="navigation">
+      <a class="navn" href="./">Tipperen</a>
+      <a class="svag" href="./">Forsiden</a>
+    </nav>
+    <h1>Privatlivspolitik</h1>
+    <p class="dato">Gældende fra 2. september 2026</p>
+  </div>
+</header>
+
+<main class="midt">
+
+  <section>
+    <p>Tipperen er lavet af en privatperson til en lukket vennegruppe. Appen
+    tjener ikke penge på dine oplysninger: der er ingen annoncer, ingen
+    analyseværktøjer, ingen sporing og intet videresalg af data. Nedenfor står
+    præcis, hvad der gemmes, og hvorfor.</p>
+    <div class="fremhaev">
+      <p><strong>Dataansvarlig</strong><br>
+      Jeppe Bekke · <a href="mailto:jebek@opennet.dk">jebek@opennet.dk</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hvad der gemmes</h2>
+    <div class="ramme">
+      <table>
+        <thead>
+          <tr><th>Oplysning</th><th>Hvorfor</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>E-mail</td>
+            <td>Din adgang til kontoen. Bruges ikke til nyhedsbreve eller anden post.</td>
+          </tr>
+          <tr>
+            <td>Adgangskode</td>
+            <td>Gemmes kun som et krypteret aftryk (bcrypt) og kan ikke læses tilbage.</td>
+          </tr>
+          <tr>
+            <td>Navn</td>
+            <td>Det, de andre i gruppen ser ud for dine tips. Du vælger det selv.</td>
+          </tr>
+          <tr>
+            <td>Telefonnummer</td>
+            <td>Så gruppen kan se, at det er dig, og så to konti ikke kan være samme person.</td>
+          </tr>
+          <tr>
+            <td>Enhedens push-nøgle</td>
+            <td>Kun hvis du siger ja til notifikationer. Slettes, når du logger ud.</td>
+          </tr>
+          <tr>
+            <td>Dine tips og afgørelser</td>
+            <td>Selve formålet med appen. De er en del af gruppens regnskab.</td>
+          </tr>
+          <tr>
+            <td>Kommentarer og chatbeskeder</td>
+            <td>Vises i den gruppe, du skrev dem i.</td>
+          </tr>
+          <tr>
+            <td>Regnskabsposteringer</td>
+            <td>Hvem der skylder hvem. Kan ikke rettes bagefter, kun modposteres.</td>
+          </tr>
+          <tr>
+            <td>Aktivitetsspor</td>
+            <td>Hvem gjorde hvad hvornår i gruppen, så en ændring ikke kan ske ubemærket.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dis">Appen indsamler ikke din placering, dine kontakter, dine
+    billeder eller dit forbrug af andre apps. Der er ingen reklame-id og ingen
+    tredjeparts-analyse i appen.</p>
+  </section>
+
+  <section>
+    <h2>Hvem der kan se det</h2>
+    <p>Kun medlemmerne af de grupper, du selv er med i. Grupper er lukkede:
+    man kommer kun ind med gruppens navn og kode. Der er ingen offentlige
+    profiler, og andre brugere kan ikke søge dig frem.</p>
+    <p>Databasen håndhæver det samme. Adgangen til en gruppes indhold er bundet
+    til et aktivt medlemskab, så en bruger uden for gruppen ikke kan hente
+    oplysningerne, uanset hvordan der spørges.</p>
+  </section>
+
+  <section>
+    <h2>Hvor det ligger</h2>
+    <p>Oplysningerne ligger i en database hos <strong>Supabase</strong>, som
+    kører på Amazon Web Services i EU. Push-notifikationer sendes gennem
+    <strong>Expo</strong> og videre gennem <strong>Apples</strong>
+    notifikationstjeneste — de får kun beskedens tekst og enhedens push-nøgle,
+    ikke dit regnskab.</p>
+    <p>Der bruges ikke andre leverandører end de tre.</p>
+  </section>
+
+  <section>
+    <h2>Hvor længe</h2>
+    <p>Så længe du har en konto. Beder du om at få den slettet, fjernes din
+    profil, dine push-nøgler, dine kommentarer og dine chatbeskeder.</p>
+    <p>Ét forbehold: har du deltaget i tips, der er gjort op, bliver
+    <strong>selve posteringerne stående</strong> i gruppens regnskab. Et
+    regnskab, hvor en deltager kan forsvinde bagefter, går ikke længere op, og
+    så kan de andre ikke se, hvad de skyldte hvem. Posteringerne kan derefter
+    ikke føres tilbage til dig som person.</p>
+  </section>
+
+  <section>
+    <h2>Dine rettigheder</h2>
+    <p>Efter databeskyttelsesforordningen (GDPR) kan du:</p>
+    <ul>
+      <li>få at vide, hvad der er gemt om dig, og få en kopi</li>
+      <li>få rettet noget, der er forkert — navn og telefonnummer kan du selv rette i appen</li>
+      <li>få din konto og dine oplysninger slettet</li>
+      <li>trække et samtykke tilbage, fx til notifikationer, hvilket du også kan gøre i iOS' indstillinger</li>
+      <li>klage til <a href="https://www.datatilsynet.dk">Datatilsynet</a>, hvis du mener, noget er galt</li>
+    </ul>
+    <p>Skriv til <a href="mailto:jebek@opennet.dk">jebek@opennet.dk</a>, så
+    svarer jeg selv. Der er ingen supportafdeling.</p>
+  </section>
+
+  <section>
+    <h2>Børn</h2>
+    <p>Appen er ikke lavet til børn og henvender sig ikke til dem. Opret ikke en
+    konto til et barn under 13 år.</p>
+  </section>
+
+  <section>
+    <h2>Hvis politikken ændres</h2>
+    <p>Datoen øverst siger, hvornår den sidst er ændret. Bliver der ændret noget
+    væsentligt om, hvad der gemmes, eller hvem der får det at se, kommer der
+    besked i appen.</p>
+  </section>
+
+</main>
+
+<footer class="midt">
+  <p style="margin:0">Tipperen · <a href="./">Forsiden</a></p>
+</footer>
+
+</body>
+</html>
