@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-mailen er bekræftet · Tipperen</title>
+<meta name="description" content="Din e-mail er bekræftet. Åbn Tipperen og log ind.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --gron-dyb: #044A2B;
+    --gron: #1B5E20;
+    --blaek: #10201A;
+    --ground: #F3F5F2;
+    --dis: #566159;
+    --linje: #DCE2DC;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--blaek);
+    font-family: Archivo, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    /* Siden har ét budskab. Så må det stå midt på skærmen. */
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .kort {
+    width: 100%;
+    max-width: 420px;
+    background: #FFFFFF;
+    border: 1px solid var(--linje);
+    border-radius: 16px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 16px 40px -20px rgba(4, 74, 43, 0.25);
+  }
+
+  .maerke {
+    width: 56px; height: 56px;
+    margin: 0 auto 20px;
+    border-radius: 999px;
+    background: var(--gron-dyb);
+    display: grid; place-items: center;
+  }
+  .maerke svg { display: block; }
+
+  .navn {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--gron);
+    margin: 0 0 6px;
+  }
+
+  h1 {
+    font-family: Montserrat, Archivo, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 12px;
+  }
+
+  p { margin: 0 0 20px; color: var(--dis); }
+
+  .knap {
+    display: inline-block;
+    background: var(--gron-dyb);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 26px;
+    border-radius: 12px;
+  }
+  .knap:hover { background: var(--gron); }
+
+  .smaat {
+    margin: 20px 0 0;
+    font-size: 14px;
+    color: var(--dis);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--gron);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+  <main class="kort">
+    <div class="maerke" aria-hidden="true">
+      <!-- Fluebenet er tegnet og ikke et emoji: et emoji ser forskelligt ud
+           paa hver platform, og det her er sidens eneste billede. -->
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M5 14.5L11 20.5L23 8.5" stroke="#FFFFFF" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <p class="navn">TIPPEREN</p>
+    <h1>Din e-mail er bekræftet</h1>
+    <p>Du kan lukke den her side og logge ind i appen.</p>
+
+    <a class="knap" href="tipperen://">Åbn Tipperen</a>
+
+    <p class="smaat">
+      Virker knappen ikke, så åbn appen fra hjemmeskærmen — bekræftelsen er
+      gået igennem alligevel.
+    </p>
+  </main>
+</body>
+</html>
